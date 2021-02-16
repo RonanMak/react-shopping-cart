@@ -1,3 +1,6 @@
+// feature 1
+import React from "react";
+
 function App() {
   return (
     <div className="grid-container">
@@ -5,7 +8,7 @@ function App() {
         <a href="/">React Shopping Cart</a>
       </header>
       <main>Product List</main>
-      <footer>All rightfvdfd is reserved.</footer>
+      <footer>All right is reserved.</footer>
     </div>
   );
 }
