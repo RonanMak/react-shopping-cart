@@ -26,7 +26,7 @@
 
 - Building backends by using Node.js, Express, MongoDB and Mongoose
 
-- Managing Component State using Redux, React-Redux and Redux-Thunk
+- Managing Component State using React-Redux and Redux-Thunk
 
 - Publish Project on the Heroku and MongoDB Atlas
 
