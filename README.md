@@ -20,8 +20,6 @@
 
 - Implementing React Components For Product List, Filter, Cart.
 
-- Adding animation using react-reveal.
-
 - Creating modal by react modal.
 
 - Building backends by using Node.js, Express, MongoDB and Mongoose
