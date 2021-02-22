@@ -33,4 +33,5 @@
 # Technology Stack
 
 Frontend: React.js, Redux.js
+#
 Backend: Node.js, Express.js, MongoDB Atlas
