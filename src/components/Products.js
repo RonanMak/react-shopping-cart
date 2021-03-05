@@ -5,6 +5,8 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
+
 class Products extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +14,12 @@ class Products extends Component {
       product: null,
     };
   }
-
   componentDidMount() {
     this.props.fetchProducts();
   }
   openModal = (product) => {
     this.setState({ product });
   };
-
   closeModal = () => {
     this.setState({ product: null });
   };
@@ -43,7 +43,7 @@ class Products extends Component {
                       <p>{product.title}</p>
                     </a>
                     <div className="product-price">
-                      <div> {formatCurrency(product.price)}</div>
+                      <div>{formatCurrency(product.price)}</div>
                       <button
                         onClick={() => this.props.addToCart(product)}
                         className="button primary"
@@ -57,9 +57,8 @@ class Products extends Component {
             </ul>
           )}
         </Fade>
-
         {product && (
-          <Modal isOpen={true}>
+          <Modal isOpen={true} onRequestClose={this.closeModal}>
             <Zoom>
               <button className="close-modal" onClick={this.closeModal}>
                 x
@@ -70,16 +69,14 @@ class Products extends Component {
                   <p>
                     <strong>{product.title}</strong>
                   </p>
+                  <p>{product.description}</p>
                   <p>
-                    <strong>{product.description}</strong>
-                  </p>
-                  <p>
-                    Available Sizes:{" "}
+                    Avaiable Sizes:{" "}
                     {product.availableSizes.map((x) => (
-                      <spna>
+                      <span>
                         {" "}
                         <button className="button">{x}</button>
-                      </spna>
+                      </span>
                     ))}
                   </p>
                   <div className="product-price">
@@ -91,7 +88,7 @@ class Products extends Component {
                         this.closeModal();
                       }}
                     >
-                      Add to Cart
+                      Add To Cart
                     </button>
                   </div>
                 </div>
@@ -103,12 +100,10 @@ class Products extends Component {
     );
   }
 }
-
 export default connect(
-  (state) => ({
-    // in reducers, I set items as variable. so we need to use "items" to get access to the list of products
-    //that comes from server
-    products: state.products.filteredItems,
-  }),
-  { fetchProducts }
+  (state) => ({ products: state.products.filteredItems }),
+  {
+    fetchProducts,
+    addToCart,
+  }
 )(Products);
