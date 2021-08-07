@@ -10,8 +10,6 @@
 
 4. Admin section
 
-5. Multiple payment options (Credit card, PayPal)
-
 # Keys to learn
 
 - Designing the website by using grid design layout.
